@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Laboratorio 3  Introducción de JavaScript</title>
+    </head>
+    <body>
+        <h1>• Paso 1. Declaración de Variables</h1> 
+
+        <p> Para comenzar con el desarrollo de este laboratorio, comience declarando un total de 2
+        variables con un valor numérico asignado por usted. Estas variables serán los numero con
+        los cuales usted realizará las operaciones matemáticas.</p>
+
+        <p>Adicionalmente cree una variable para almacenar la operación matemática que desea
+        realizar. Esta va a tomar valores de “suma”, “resta”, “multiplicación” y “división”</p>
+
+        <h1>• Paso 2. Función para realizar operaciones</h1>
+        <p>Crea una función llamada realizarOperacion que reciba tres parámetros: num1, num2
+        y operación</p> 
+        <p>Dentro de la función, utiliza una estructura condicional (if...else if...else) para realizar la
+        operación indicada en el parámetro operacion:</p>  
+        
+        <ul>
+            <li>Si operacion es "suma", devuelve la suma de num1 y num2.</li>
+            <li>Si operacion es "resta", devuelve la resta de num1 y num2.</li>
+            <li>Si operacion es "multiplicacion", devuelve la multiplicación de num1 y num2.</li>
+            <li>Si operacion es "division", devuelve la división de num1 y num2.</li>
+        </ul>
+
+        <h1>• Paso 3. Realizar validaciones de datos y operaciones.</h1>
+        <p>Utiliza una estructura condicional para comprobar que la operación ingresada es válida.</p>
+        <p>Si la operación no es una de las cuatro opciones mencionadas, devuelve un mensaje de error.</p>
+        <p>Asegúrate de manejar correctamente la división por cero en la operación de división
+        Puedes realizar esto con ayuda de la estructura condicional if.</p>
+
+        <h1>• Paso 4. Bucle para realizar múltiples operaciones.</h1>
+        <p>Crea un bucle while que permita al usuario realizar varias operaciones de manera continua.</p>
+        <p>El bucle debe continuar hasta que el usuario ingrese la palabra "salir" como la operación.</p>
+        <p>Dentro del bucle, pide al usuario que ingrese los dos números y la operación que desea
+        realizar (puedes simular esto con prompt o valores fijos para simplificar).</p>
+        <p>Después de cada operación, muestra el resultado de la operación y pregunta al usuario si
+        desea realizar otra operación.</p>
+        
+        <h1>• Paso 5. Prueba de la calculadora</h1>
+        <p>En el bucle, si el usuario ingresa "salir", muestra un mensaje de despedida y termina el
+        bucle. Realiza las pruebas necesarias para validar que la calculadora esta funcionando
+        correctamente.</p>
+
+
+        <script>
+           do{ 
+                let num1 = prompt('1. Ingrese un número: ')
+                let num2 = prompt('2. Ingrese otro número: ')
+
+                let operacion = prompt('3. Ingrese una operación escriba (<< suma >>, << resta >>, << multiplicacion >>, << division >>):')
+                
+                if((!isNaN(num1) && num1!=null && num1!="") && (!isNaN(num2) && num2!=null && num2!="")){
+                    
+                    const resultado = calculoOperaciones(num1, num2, operacion)
+                    console.log('Resultado de la operacion es :', resultado)
+                }
+                else{
+                    console.log('Usted ha ingresado valores no numericos cuando se le solicito!')
+                }
+
+                let snSalir = prompt('Si desea salir escriba << salir >>, sino cualquier tecla para continuar ')
+                if (snSalir === 'salir'){
+                    console.log('Gracias por utilizar nuestra calculadora básica!!')
+                    break;
+                }
+
+            }while(true)
+
+            function calculoOperaciones(n1, n2, oper){
+                if(oper === "suma"){
+                    return  n1 + n2;
+                }else if(oper === "resta"){
+                    return  n1 - n2;
+                }else if(oper === "multiplicacion"){
+                    return  n1 * n2;
+                }else if(oper === "division"){
+                    if (!Number.isFinite(n1 / n2)){
+                        return "Error: No se puede divir entre 0."
+                    }else{
+                        return  n1/n2;
+                    }  
+                }else{
+                    return "Error: Operación no existe."
+                }
+            }
+        </script>
+
+        <h1> • Paso 6. Copia tu código en el repositorio y súbelo.</h1>
+        <p>Finalmente, si ya terminaste el desarrollo de tu calculadora y esta funcionando
+            correctamente, copia tu código JavaScript en un nuevo archivo JS en la carpeta de tu
+            repositorio creado en el desarrollo del Laboratorio 2.</p>
+        <p>Luego añade los cambios, realiza un commit y súbelo a tu repositorio remoto.</p>
+    </body>
+</html>
